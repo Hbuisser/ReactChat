@@ -15,3 +15,11 @@ export function setChannels() {
     payload: ['general', 'react', 'paris']
   }
 }
+
+export function createMessage(channel, author, content) {
+  return {
+    type: 'POST_MESSAGE',
+    payload: [channel, author, content]
+  }
+}
+

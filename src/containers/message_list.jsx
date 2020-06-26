@@ -23,7 +23,6 @@ class MessageList extends Component {
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
-    //{ selectedChanne: selectedChannel },
     { fetchMessages: fetchMessages },
     dispatch
   );
