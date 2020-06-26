@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { selectedChannel } from '../actions';
+import { fetchMessages } from '../actions';
+import Message from '../components/message.jsx';
+import MessageForm from '../containers/message_form.jsx';
+
 
 class MessageList extends Component {
   componentWillMount() {
-    this.props.selectedChannel(this.props.selectedChannel);
+    this.props.fetchMessages(this.props.channel);
   }
 
   render () {
     return (
       <div>
-        Helloooooooo
+        <Message />
+        <MessageForm />
       </div>
     )
   }
@@ -19,7 +23,8 @@ class MessageList extends Component {
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
-    { selectedChannel: selectedChannel },
+    //{ selectedChanne: selectedChannel },
+    { fetchMessages: fetchMessages },
     dispatch
   );
 }

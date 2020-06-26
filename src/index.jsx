@@ -16,7 +16,6 @@ import channelsReducer from './reducers/channels_reducer.js';
 import currentUserReducer from './reducers/current_user_reducer.js';
 
 
-
 const middlewares = applyMiddleware(reduxPromise, logger);
 
 // State and reducers
@@ -28,7 +27,6 @@ const initialState = {
 };
 
 const reducers = combineReducers({
-  //changeMe: (state = null, action) => state
   selectedChannel: selectedChannelReducer,
   messages: messagesReducer,
   channels: channelsReducer,
