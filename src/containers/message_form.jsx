@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import createMessage from '../actions';
+import { createMessage } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchMessages } from '../actions';
@@ -21,15 +21,15 @@ class MessageForm extends Component {
 
   handleSubmit(event) {
     //alert('A name was submitted: ' + this.state.value);
-    //event.preventDefault();
-    this.createMessage(channel, author, this.state.value)
+    event.preventDefault();
+    this.props.createMessage('general', 'hbuisser', this.state.value);
   }
 
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" value={this.state.value} onChange={this.handleChange}/>
         </label>
         <input type="submit" value="Submit" />
       </form>
@@ -39,6 +39,7 @@ class MessageForm extends Component {
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
+    //{ currentUser: currentUser },
     { createMessage: createMessage },
     dispatch
   );
