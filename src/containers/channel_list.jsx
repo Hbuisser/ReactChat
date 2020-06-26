@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setChannels } from '../actions';
+import Channel from'./channel.jsx';
 
 class ChannelList extends Component {
   componentWillMount() {
@@ -10,8 +11,9 @@ class ChannelList extends Component {
 
   render () {
     return (
-      <div>
-        {this.props.channels}
+      <div className="channel-list">
+        <h1>Redux Chat</h1>
+        {this.props.channels.map((channel) => <Channel channel={channel} key={channel}/>)}
       </div>
     )
   }

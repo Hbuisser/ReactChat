@@ -6,9 +6,9 @@ import MessageList from '../containers/message_list.jsx';
 const App = () => {
   return (
     <div className="app">
-      <p>React + Redux starter</p>
-      <ChannelList />
-      <MessageList />
+        <p>Logo</p>
+        <ChannelList />
+        <MessageList />
     </div>
   );
 };

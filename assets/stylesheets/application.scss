@@ -4,4 +4,22 @@ body {
 .app {
   margin-top: 20px;
   margin-bottom: 20px;
+  display: flex;
+  .logo {
+    width: 30%;
+    padding: 10px 15px;
+  }
+  .channel-list {
+    width: 30%;
+    padding: 10px 15px;
+  }
+  .message-list {
+    width: 60%;
+    padding: 10px 15px;
+  }
+  .channel {
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
 }
+
