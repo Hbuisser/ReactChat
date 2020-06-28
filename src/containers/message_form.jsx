@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import { fetchMessages } from '../actions';
 
 class MessageForm extends Component {
-  // componentWillMount() {
-  //   this.props.fetchMessages(this.props.channel);
-  // }
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -23,6 +20,7 @@ class MessageForm extends Component {
     //alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
     this.props.createMessage('general', 'hbuisser', this.state.value);
+    this.setState({ value: '' });
   }
 
   render () {

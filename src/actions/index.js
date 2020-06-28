@@ -18,10 +18,6 @@ export function setChannels() {
 }
 
 export function createMessage(channel, author, content) {
-  // return {
-  //   type: 'POST_MESSAGE',
-  //   payload: [channel, author, content]
-  // }
   const body = { channel: channel, author: author, content: content };
   const promise = fetch('https://wagon-chat.herokuapp.com/general/messages', {
     method: 'POST',

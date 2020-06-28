@@ -7,20 +7,22 @@ import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
-    this.props.fetchMessages();
+    this.fetchMessages();
   }
 
   componentDidMount() {
-    this.refresher = setInterval(this.props.fetchMessages(), 1000);
+    this.refresher = setInterval(this.fetchMessages, 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.refresher);
   }
 
-  render () {
-    //debugger
+  fetchMessages = () => {
+    this.props.fetchMessages();
+  }
 
+  render () {
     return (
       <div className="message-list">
         <h1>Channel</h1>
