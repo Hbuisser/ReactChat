@@ -5,12 +5,14 @@ import MessageList from '../containers/message_list.jsx';
 
 const App = () => {
   return (
-    <div className="app">
-        <p>Logo</p>
-        <ChannelList />
-        <MessageList />
+    <div className="messaging-wrapper">
+      <div className="logo-container">
+        Logo
+      </div>
+      <ChannelList />
+      <MessageList />
     </div>
   );
-};
+}
 
 export default App;

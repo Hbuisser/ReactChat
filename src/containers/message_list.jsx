@@ -11,7 +11,7 @@ class MessageList extends Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages();
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
   //Updating messages every X seconds
@@ -30,9 +30,11 @@ class MessageList extends Component {
 
   render () {
     return (
-      <div className="message-list">
-        <h1>Channel</h1>
-        <div ref={(list) => { this.list = list; }}>
+      <div className="channel-container">
+        <div className="channel-title">
+          <h1>Channels #{this.props.selectedChannel}</h1>
+        </div>
+        <div className="channel-content" ref={(list) => { this.list = list; }}>
           {
             this.props.messages.map((message) => {
              return <Message message={message} key={message.id} author={message.author} time={message.created_at} />
@@ -54,8 +56,8 @@ function DispatchToProps(dispatch) {
 
 function ReduxStateToProps(reduxState) {
   return {
-    messages: reduxState.messagesList
-    //selectedChannel: reduxState.selectedChannel
+    messages: reduxState.messagesList,
+    selectedChannel: reduxState.selectedChannel
   };
 }
 

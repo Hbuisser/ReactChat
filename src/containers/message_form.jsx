@@ -12,6 +12,10 @@ class MessageForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.messageBox.focus();
+  }
+
   handleChange(event) {
     this.setState({value: event.target.value});
   }
@@ -19,7 +23,7 @@ class MessageForm extends Component {
   handleSubmit(event) {
     //alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
-    this.props.createMessage(this.state.selectedChannel, 'hbuisser', this.state.value);
+    this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
     this.setState({ value: '' });
   }
 
@@ -27,7 +31,11 @@ class MessageForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          <input type="text" value={this.state.value} onChange={this.handleChange}/>
+          <input  type="text"
+                  className="form-control"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  ref={(input) => { this.messageBox = input; }}/>
         </label>
         <input type="submit" value="Submit" />
       </form>
@@ -43,9 +51,10 @@ function DispatchToProps(dispatch) {
   );
 }
 
-function ReduxStateToProps(reduxState) {
+function ReduxStateToProps(state) {
   return {
-    selectedChannel: reduxState.selectedChannel
+    currentUser: state.currentUser,
+    selectedChannel: state.selectedChannel
   }
 }
 

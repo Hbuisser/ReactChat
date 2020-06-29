@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { setChannels } from '../actions';
 import { selectChannel } from '../actions';
 import Channel from'./channel.jsx';
+import { fetchMessages } from '../actions';
 
 class ChannelList extends Component {
-  // componentWillMount() {
-  //   this.props.setChannels();
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedChannel !== this.props.selectedChannel) {
+      fetchMessages(nextProps.selectedChannel);
+    }
+  }
 
   handleClick = (channel) => {
     this.props.selectChannel(channel);
@@ -16,7 +19,9 @@ class ChannelList extends Component {
 
   renderChannel = (channel) => {
     return (
-      <li key={channel} onClick={() => this.handleClick(channel)}>
+      <li key={channel}
+          className={channel === this.props.selectedChannel ? 'active' : null}
+          onClick={() => this.handleClick(channel)}>
         {channel}
       </li>
     )
@@ -24,12 +29,11 @@ class ChannelList extends Component {
 
   render () {
     return (
-      <div className="channel-list">
+      <div className="channels-container">
         <h1>Redux Chat</h1>
         <ul>
           {this.props.channels.map(this.renderChannel)}
         </ul>
-        <h1>{this.selectedChannel}</h1>
       </div>
     )
   }
