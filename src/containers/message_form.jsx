@@ -46,7 +46,6 @@ class MessageForm extends Component {
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
-    //{ currentUser: currentUser },
     { createMessage: createMessage },
     dispatch
   );

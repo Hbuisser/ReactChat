@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setChannels } from '../actions';
 import { selectChannel } from '../actions';
 import { fetchMessages } from '../actions';
 
 class ChannelList extends Component {
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.selectedChannel !== this.props.selectedChannel) {
-      fetchMessages(nextProps.selectedChannel);
+      this.props.fetchMessages(nextProps.selectedChannel);
     }
   }
 
@@ -40,7 +39,7 @@ class ChannelList extends Component {
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
-    { selectChannel: selectChannel },
+    { selectChannel, fetchMessages },
     dispatch
   );
 }

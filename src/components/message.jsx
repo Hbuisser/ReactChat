@@ -10,6 +10,7 @@ class Message extends Component {
     return(
       <div className="message-container">
         <i className="author">
+          <span>{author}</span>
           <small>{time}</small>
         </i>
         <p>{emojify(content)}</p>

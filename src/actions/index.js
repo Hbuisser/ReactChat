@@ -11,14 +11,6 @@ export function fetchMessages(channel) {
     };
 }
 
-// const channels = ['general', 'react', 'paris'];
-// export function setChannels() {
-//   return {
-//     type: 'SET_CHANNELS',
-//     payload: channels
-//   }
-// }
-
 export function selectChannel(selectedChannel) {
   return {
     type: 'SELECT_CHANNELS',

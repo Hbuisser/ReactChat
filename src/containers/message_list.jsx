@@ -32,7 +32,7 @@ class MessageList extends Component {
     return (
       <div className="channel-container">
         <div className="channel-title">
-          <h1>Channel #{this.props.selectedChannel}</h1>
+          <span>Channel #{this.props.selectedChannel}</span>
         </div>
         <div className="channel-content" ref={(list) => { this.list = list; }}>
           {
@@ -49,15 +49,15 @@ class MessageList extends Component {
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchMessages: fetchMessages },
+    { fetchMessages },
     dispatch
   );
 }
 
-function ReduxStateToProps(reduxState) {
+function ReduxStateToProps(state) {
   return {
-    messages: reduxState.messagesList,
-    selectedChannel: reduxState.selectedChannel
+    messages: state.messages,
+    selectedChannel: state.selectedChannel
   };
 }
 
