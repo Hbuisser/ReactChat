@@ -6,6 +6,16 @@ Simple React + Redux starter with the following config:
 - Redux, React-Redux
 - Webpack 3
 - Babel with es2015 and react presets
-- Bootstrap (css only, loaded from a cdn in `index.html`)
 - work with `.js` or `.jsx` files
-- main `application.scss` stylesheet is imported in `index.js` as a module to enjoy hot reloading
+
+Config:
+
+- yarn add react-emojione
+
+To launch:
+
+- yarn start
+
+"invalid host/origin header" error occurs when you inspect:
+
+- yarn start --disable-host-check

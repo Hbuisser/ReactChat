@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { emojify } from 'react-emojione';
+
 
 class Message extends Component {
   render() {
@@ -8,9 +10,9 @@ class Message extends Component {
     return(
       <div className="message-container">
         <i className="author">
-          <div>{content}</div>
           <small>{time}</small>
         </i>
+        <p>{emojify(content)}</p>
       </div>
     )
   };
