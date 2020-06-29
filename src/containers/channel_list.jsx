@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setChannels } from '../actions';
 import { selectChannel } from '../actions';
-import Channel from'./channel.jsx';
 import { fetchMessages } from '../actions';
 
 class ChannelList extends Component {
@@ -30,7 +29,7 @@ class ChannelList extends Component {
   render () {
     return (
       <div className="channels-container">
-        <h1>Redux Chat</h1>
+        <span>Redux Chat</span>
         <ul>
           {this.props.channels.map(this.renderChannel)}
         </ul>

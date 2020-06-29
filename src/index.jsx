@@ -24,6 +24,7 @@ const middlewares = applyMiddleware(reduxPromise, logger);
 const initialState = {
   channels: ['general', 'react', 'paris'],
   //currentUser: prompt("What is your username?"),
+  currentUser: 'Hbuisser',
   selectedChannel: 'general'
 };
 

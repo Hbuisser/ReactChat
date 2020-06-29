@@ -32,12 +32,12 @@ class MessageList extends Component {
     return (
       <div className="channel-container">
         <div className="channel-title">
-          <h1>Channels #{this.props.selectedChannel}</h1>
+          <h1>Channel #{this.props.selectedChannel}</h1>
         </div>
         <div className="channel-content" ref={(list) => { this.list = list; }}>
           {
             this.props.messages.map((message) => {
-             return <Message message={message} key={message.id} author={message.author} time={message.created_at} />
+             return <Message message={message} key={message.id}/>
             })
           }
         </div>
