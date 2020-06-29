@@ -19,7 +19,7 @@ class MessageForm extends Component {
   handleSubmit(event) {
     //alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
-    this.props.createMessage('general', 'hbuisser', this.state.value);
+    this.props.createMessage(this.state.selectedChannel, 'hbuisser', this.state.value);
     this.setState({ value: '' });
   }
 
@@ -43,10 +43,10 @@ function DispatchToProps(dispatch) {
   );
 }
 
-// function ReduxStateToProps(reduxState) {
-//   return {
-//     messages: reduxState.messages
-//   }
-// }
+function ReduxStateToProps(reduxState) {
+  return {
+    selectedChannel: reduxState.selectedChannel
+  }
+}
 
 export default connect(null, DispatchToProps)(MessageForm);

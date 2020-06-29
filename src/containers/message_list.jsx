@@ -10,25 +10,34 @@ class MessageList extends Component {
     this.fetchMessages();
   }
 
-  componentDidMount() {
-    this.refresher = setInterval(this.fetchMessages, 1000);
+  fetchMessages = () => {
+    this.props.fetchMessages();
   }
 
+  //Updating messages every X seconds
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessages, 5000);
+  }
   componentWillUnmount() {
     clearInterval(this.refresher);
   }
 
-  fetchMessages = () => {
-    this.props.fetchMessages();
+  //Scrolling the message list
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
   }
+
 
   render () {
     return (
       <div className="message-list">
         <h1>Channel</h1>
-        <div>
-          {this.props.messages.map((message) =>
-            <Message message={message} key={message.id} author={message.author} time={message.created_at} />)}
+        <div ref={(list) => { this.list = list; }}>
+          {
+            this.props.messages.map((message) => {
+             return <Message message={message} key={message.id} author={message.author} time={message.created_at} />
+            })
+          }
         </div>
         <MessageForm />
       </div>
