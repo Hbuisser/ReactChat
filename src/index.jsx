@@ -10,15 +10,13 @@ import reduxPromise from 'redux-promise';
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
+// reducers
 import selectedChannelReducer from './reducers/selected_channel_reducer.js';
 import messagesReducer from './reducers/messages_reducer.js';
-import channelsReducer from './reducers/channels_reducer.js';
-import currentUserReducer from './reducers/current_user_reducer.js';
-
-
-
-const middlewares = applyMiddleware(reduxPromise, logger);
 const identityReducer = (state = null) => state;
+
+// define middlewares
+const middlewares = applyMiddleware(reduxPromise, logger);
 
 // State and reducers
 const initialState = {
@@ -31,7 +29,6 @@ const initialState = {
 
 const reducers = combineReducers({
   messages: messagesReducer,
-  //messagesList: messagesListReducer,
   channels: identityReducer,
   currentUser: identityReducer,
   selectedChannel: selectedChannelReducer

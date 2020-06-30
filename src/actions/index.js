@@ -1,9 +1,8 @@
-// TODO: add and export your own actions
 const BASE_URL = 'https://wagon-chat.herokuapp.com';
 
 export function fetchMessages(channel) {
   const url = `${BASE_URL}/${channel}/messages`;
-  const promise = fetch('https://wagon-chat.herokuapp.com/general/messages')
+  const promise = fetch(url)
     .then(response => response.json());
     return {
       type: 'FETCH_MESSAGES',

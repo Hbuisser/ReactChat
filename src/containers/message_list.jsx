@@ -37,7 +37,7 @@ class MessageList extends Component {
         <div className="channel-content" ref={(list) => { this.list = list; }}>
           {
             this.props.messages.map((message) => {
-             return <Message message={message} key={message.id}/>
+              return <Message message={message} key={message.id}/>
             })
           }
         </div>
