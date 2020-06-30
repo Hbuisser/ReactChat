@@ -33,4 +33,3 @@ export function createMessage(channel, author, content) {
       payload: promise
     };
 }
-

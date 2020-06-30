@@ -1,7 +1,6 @@
 export default function(state = null, action) {
   switch (action.type) {
     case 'POST_MESSAGE': {
-      //return action.payload;
       const copiedState = state.slice(0);
       copiedState.push(action.payload);
       return copiedState;

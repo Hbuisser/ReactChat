@@ -27,7 +27,6 @@ class MessageList extends Component {
     this.list.scrollTop = this.list.scrollHeight;
   }
 
-
   render () {
     return (
       <div className="channel-container">

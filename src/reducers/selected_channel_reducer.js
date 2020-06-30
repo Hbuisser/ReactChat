@@ -1,15 +1,3 @@
-// const selectedChannelReducer = (state=null, action) => {
-//   switch (action.type) {
-//     case 'SELECT_CHANNELS':
-//       return action.payload;
-//     default:
-//       return state
-//   }
-// }
-
-// export default selectedChannelReducer;
-
-
 export default function(state, action) {
   if (state === undefined) {
     return null;
@@ -20,4 +8,3 @@ export default function(state, action) {
     return state;
   }
 }
-

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { emojify } from 'react-emojione';
 
-
 class Message extends Component {
   strToRGB(str) {
     let hash = 0;
