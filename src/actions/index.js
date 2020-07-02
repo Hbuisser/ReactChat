@@ -10,12 +10,12 @@ export function fetchMessages(channel) {
     };
 }
 
-export function selectChannel(selectedChannel) {
-  return {
-    type: 'SELECT_CHANNELS',
-    payload: selectedChannel
-  }
-}
+// export function selectChannel(selectedChannel) {
+//   return {
+//     type: 'SELECT_CHANNELS',
+//     payload: selectedChannel
+//   }
+// }
 
 export function createMessage(channel, author, content) {
   const url = `${BASE_URL}/${channel}/messages`;

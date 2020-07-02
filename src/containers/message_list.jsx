@@ -11,12 +11,12 @@ class MessageList extends Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages(this.props.selectedChannel);
+    this.props.fetchMessages(this.props.channelFromParams);
   }
 
   //Updating messages every X seconds
   componentDidMount() {
-    this.refresher = setInterval(this.fetchMessages, 5000);
+    //this.refresher = setInterval(this.fetchMessages, 5000);
   }
   componentWillUnmount() {
     clearInterval(this.refresher);
@@ -31,7 +31,7 @@ class MessageList extends Component {
     return (
       <div className="channel-container">
         <div className="channel-title">
-          <span>Channel #{this.props.selectedChannel}</span>
+          <span>Channel #{this.props.channelFromParams}</span>
         </div>
         <div className="channel-content" ref={(list) => { this.list = list; }}>
           {
@@ -40,7 +40,7 @@ class MessageList extends Component {
             })
           }
         </div>
-        <MessageForm />
+        <MessageForm channelFromParams={this.props.channelFromParams}/>
       </div>
     )
   }
@@ -56,7 +56,7 @@ function DispatchToProps(dispatch) {
 function ReduxStateToProps(state) {
   return {
     messages: state.messages,
-    selectedChannel: state.selectedChannel
+    //selectedChannel: state.selectedChannel
   };
 }
 
